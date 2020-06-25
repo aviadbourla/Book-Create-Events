@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 const graphqlHttp = require('express-graphql');
 const mongoose = require('mongoose');
 const app = express();
-
 const graphqlSchema = require('./graphql/scheima/index');
 const graphqlResolvers = require('./graphql/resolvers/index')
+const password = require('./keys');
 
 const IsAuth = require('./middleware/is-auth')
 
@@ -32,14 +32,16 @@ app.use('/graphql', graphqlHttp({
 );
 
 app.get('/', (req, res, next) => {
-    res.send("hey world")
+     res.send("hey world")
 })
 
 mongoose.connect
-    (`mongodb+srv://aviadbourla:pnxWyd0Uy7SVZmsc@bourla-shop-xmeqv.mongodb.net/events-react-dev?retryWrites=true&w=majority`)
+    (`mongodb+srv://aviadbourla:${password}@bourla-shop-xmeqv.mongodb.net/events-react-dev?retryWrites=true&w=majority`)
     .then(() => {
         app.listen(8000);
     })
     .catch(err => {
         console.log(err);
     })
+
+ 
