@@ -1,0 +1,126 @@
+.auth-form {
+    width: 20rem;
+    max-width: 80%;
+    margin: 3rem auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.form-control label, .form-control input {
+    width: 100%;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.form-control {
+    margin: 2rem;
+    font-size: 1.5rem;
+}
+
+.form-control-btn {
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-continer {
+    border: 1px solid black;
+}
+
+.login_signup {
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.submit_btn {
+    font-family: 'Fascinate Inline', cursive;
+    width: 110px;
+    background: linear-gradient(to bottom, #F46001, #E14802);
+    border: none;
+    color: #FFF;
+    border-radius: 2em;
+    padding: 0.1rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* .left_side {
+    height: 745px;
+    background-color: white;
+    width: 20%;
+}
+
+.right_side {
+    background-image: url(https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+     background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 745px;
+ } */
+
+@media(max-width: 812px) {
+    .login_continer {
+        height: 100vh;
+    }
+}
+
+.login_continer {
+    /* background-image: url("https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"); */
+    background-attachment: fixed;
+    background-position: bottom;
+    height: 95.9vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    text-align: right;
+    opacity: 0.8;
+    
+ }
+
+.form_control {
+    width: 300px;
+    padding: 3rem;
+    margin-top: 6rem;
+    height: 320px;
+    font-family: 'Fascinate Inline', cursive;
+     border-radius: 10%;
+}
+ 
+
+.MuiButton-containedPrimary {
+    background-color: thistle !important;
+    color: black !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    font-family: 'Fascinate Inline', cursive !important;
+}
+
+.MuiAvatar-root {
+    background-color: thistle !important;
+}
+
+.login_h1 {
+    font-size: 3rem;
+}
+
+.icon_h1 {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MuiFormLabel-root.Mui-error {
+    color: black !important;
+}
+
+.MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline{
+    border-color: black !important;
+}

@@ -1,0 +1,79 @@
+.first_div {
+    background-image: url(https://aneventapart.com/assets/img/events/AEA_2020_online-together_web_bottom_01.svg), -webkit-linear-gradient(#ffffed 0%, #fff0e7 100%);
+    background-repeat: repeat-x, repeat;
+    background-position: bottom;
+    background-color: #fff0e7;
+    height: 500px;
+    color: rgb(5, 4, 5);
+    width: 100%;
+}
+
+.first_div h1 {
+    font-size: 4rem;
+    font-family: 'Fascinate Inline', cursive;
+    margin: 1rem;
+}
+
+.first_div p {
+    font-size: 2rem;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.continer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    font-family: 'Fascinate Inline', cursive;
+    font-size: 2.1vmin;
+    width: 200px;
+    background-color: rgb(187, 150, 187);
+    border: none;
+    color: #FFF;
+    border-radius: 2em;
+    padding: .6em 1.5em;
+    cursor: pointer;
+    margin: 0.2rem;
+}
+
+.btn:hover {
+    background-color: black;
+    color: rgb(187, 150, 187);
+}
+
+.second_div {
+    width: 100%;
+    height: 300px;
+    background-color: #161616;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.description_second_div {
+    width: 900px;
+}
+
+.second_div h1 {
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.text_second_div {
+    display: inline;
+    font-family: 'Fascinate Inline', cursive;
+}
+
+strong {
+    color: white;
+}
