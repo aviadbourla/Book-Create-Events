@@ -3,22 +3,28 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
 import * as actions from '../../Redux/actions';
 import './MainNavigation.css'
-
-
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
 const MainNavigation = (props) => {
+
     return (
-        <header className="main-navigation">
-            <NavLink className="main-navigation__logo" to="/"  > EasyEvent</NavLink>
-            <nav className="main-navigation__item">
-                <ul>
-                    {/* {!props.loged && <li>{}</li>} */}
-                    {!props.loged && <li  > <NavLink to="/auth" className="auth">Authenticate  </NavLink></li>}
-                    <li> <NavLink to="/events"  >Events  </NavLink></li>
-                    {props.loged && <li> <NavLink to="/bookings" className="events"> Bookings</NavLink></li>}
-                    {props.loged && <li> <NavLink to="/auth" className="events" onClick={() => props.logout()}> logout</NavLink></li>}
-                </ul>
-            </nav>
-        </header>)
+        <Navbar expand="lg" className="main-nav">
+            <Navbar.Brand className="main-navigation__logo">  <NavLink to="/" className="main-navigation__logo" > EasyEvent</NavLink></Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav" className="main-navigation__item">
+                <Nav className="mr-auto">
+                    {!props.loged && <NavLink to="/auth" className="events">Authenticate  </NavLink>}
+                    <NavLink to="/events" className="events"  >Events  </NavLink>
+                    {props.loged && <NavLink to="/bookings" className="events"> Bookings</NavLink>}
+                </Nav>
+                {props.loged && <NavLink to="/auth" className="events" onClick={() => props.logout()}> logout</NavLink>}
+
+            </Navbar.Collapse>
+        </Navbar>
+    )
 };
 
 const mapStateToProps = (state) => {

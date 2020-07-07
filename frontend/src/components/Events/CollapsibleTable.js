@@ -122,19 +122,19 @@ function Row(props) {
                             <Table size="small">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell align="right"> </TableCell>
-                                        <TableCell align="right"> מייל ליצירת קשר</TableCell>
-                                        <TableCell align="right">בעל האירוע</TableCell>
+                                        <TableCell padding="none" align="right"> </TableCell>
+                                        <TableCell padding="none" align="right"> מייל ליצירת קשר</TableCell>
+                                        <TableCell padding="none" align="right">בעל האירוע</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    <TableCell className="cell" align="right">
+                                    <TableCell padding="none" className="cell" align="right">
                                         <button className="btn_book_event" onClick={() => bookEventHandler(event._id)}> הרשם לאירוע</button>
                                     </TableCell>
-                                    <TableCell className="cell_email" >
+                                    <TableCell padding="none" className="cell_email" >
                                         {event.creator.email}
                                     </TableCell>
-                                    <TableCell className="cell_email" >
+                                    <TableCell padding="none" className="cell_email" >
                                         {event.creator.fullName}
                                     </TableCell>
 

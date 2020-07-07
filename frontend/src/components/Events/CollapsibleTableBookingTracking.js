@@ -95,7 +95,7 @@ function Row(props) {
 
     const { event } = props;
     const filteredArr = props.bookedEvents.filter(event => event.user.fullName.includes(filter));
-    
+
     const classes = useRowStyles();
     return (
         <React.Fragment>

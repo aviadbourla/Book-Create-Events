@@ -1,79 +1,121 @@
 .first_div {
-    background-image: url(https://aneventapart.com/assets/img/events/AEA_2020_online-together_web_bottom_01.svg), -webkit-linear-gradient(#ffffed 0%, #fff0e7 100%);
-    background-repeat: repeat-x, repeat;
-    background-position: bottom;
-    background-color: #fff0e7;
-    height: 500px;
-    color: rgb(5, 4, 5);
-    width: 100%;
+  background-image: url(https://aneventapart.com/assets/img/events/AEA_2020_online-together_web_bottom_01.svg),
+    -webkit-linear-gradient(#ffffed 0%, #fff0e7 100%);
+  background-repeat: repeat-x, repeat;
+  background-position: bottom;
+  background-color: #fff0e7;
+  height: 500px;
+  color: rgb(5, 4, 5);
+  width: 100%;
 }
 
 .first_div h1 {
-    font-size: 4rem;
-    font-family: 'Fascinate Inline', cursive;
-    margin: 1rem;
+  font-size: 4rem;
+  font-family: "Fascinate Inline", cursive;
+  margin: 1rem;
 }
 
 .first_div p {
-    font-size: 2rem;
-    font-family: 'Fascinate Inline', cursive;
+  font-size: 2rem;
+  font-family: "Fascinate Inline", cursive;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .continer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-home {
+  font-family: "Fascinate Inline", cursive;
+  font-size: 2.1vmin;
+  width: 200px;
+  background-color: rgb(187, 150, 187);
+  border: none;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.6em 1.5em;
+  cursor: pointer;
+  margin: 0.2rem;
+}
+
+.btn:hover {
+  background-color: black;
+  color: rgb(187, 150, 187);
+}
+
+.second_div {
+  width: 100%;
+  height: 300px;
+  background-color: #161616;
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.description_second_div {
+  width: 900px;
+}
+
+.second_div h1 {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.text_second_div {
+  display: inline;
+  font-family: "Fascinate Inline", cursive;
+}
+
+strong {
+  color: white;
+}
+.home_continer {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .second_div {
+    display: none;
+  }
+
+  .home_continer {
+    height: 100vh;
+    z-index: 999;
+  }
+  .first_div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.btn {
-    font-family: 'Fascinate Inline', cursive;
-    font-size: 2.1vmin;
-    width: 200px;
+    height: 100vh;
+    margin-top: -60px;
+  }
+  .home-title {
+    font-size: 2.5rem !important;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+  }
+  .main-p {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .btn-home {
+    padding: 0.5rem 5px;
+    margin: 5rem;
+    width: 60%;
+    font-size: 1.5rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(187, 150, 187);
-    border: none;
-    color: #FFF;
-    border-radius: 2em;
-    padding: .6em 1.5em;
-    cursor: pointer;
-    margin: 0.2rem;
-}
-
-.btn:hover {
-    background-color: black;
-    color: rgb(187, 150, 187);
-}
-
-.second_div {
-    width: 100%;
-    height: 300px;
-    background-color: #161616;
-    color: white;
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-}
-
-.description_second_div {
-    width: 900px;
-}
-
-.second_div h1 {
-    display: inline-block;
-    margin-bottom: 2rem;
-}
-
-.text_second_div {
-    display: inline;
-    font-family: 'Fascinate Inline', cursive;
-}
-
-strong {
-    color: white;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+  }
 }

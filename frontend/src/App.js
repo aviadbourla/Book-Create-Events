@@ -8,14 +8,14 @@ import { connect } from 'react-redux'
 import CreatEventForm from './components/Events/CreatEventForm'
 import HomePage from './pages/HomePage';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
   return (
     <BrowserRouter >
       <React.Fragment>
         <MainNavigation />
-        <main className="main-content">
+        <main  >
           <Switch>
             {!props.loged && <Redirect from="/" to="/homepage" exact />}
             {!props.loged && <Redirect from="/" to="/auth" exact />}

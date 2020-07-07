@@ -68,14 +68,10 @@ export default function CustimizedDialog(props) {
       </Button>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-                 </DialogTitle>
-                     <Typography gutterBottom>
-                        <CreatEventForm />
-                    </Typography>
-                 <DialogActions>
-                    <Button autoFocus onClick={handleClose} color="primary">
-                    </Button>
-                </DialogActions>
+                </DialogTitle>
+                <Typography gutterBottom>
+                    <CreatEventForm />
+                </Typography>
             </Dialog>
         </div>
     );

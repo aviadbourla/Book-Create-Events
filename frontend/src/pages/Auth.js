@@ -62,7 +62,7 @@ const Auth = (props) => {
             props.login();
             props.getToken(respone.data.data.login.token);
             props.getUserId(respone.data.data.login.userId);
-             history.push("/events");
+            history.push("/events");
         }
         catch (error) {
             console.log(error);
@@ -181,7 +181,7 @@ const mapDispatchToProps = dispatch => {
         getToken: (token) => dispatch(actions.getToken(token)),
         getUserId: (id) => dispatch(actions.getUserId(id)),
         getUserFullName: (fullName) => dispatch(actions.getUserFullName(fullName)),
-     }
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);

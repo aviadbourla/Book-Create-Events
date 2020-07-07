@@ -1,69 +1,77 @@
 .Events_table {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .date_cell_day {
-    background-color: #c5a7b9;
-    color: white !important;
-    font-size: 2rem !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    text-align: center !important;
-    font-weight: bold;
+  background-color: #c5a7b9;
+  color: white !important;
+  font-size: 2rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: center !important;
+  font-weight: bold;
 }
 
 .date_cell_day:hover {
-    color: black !important;
+  color: black !important;
 }
 
 .date_cell_houre {
-    background: #C7C7C7;
-    font-size: 18px !important;
-    text-align: center !important;
-    padding: 0 !important;
+  background: #c7c7c7;
+  font-size: 18px !important;
+  text-align: center !important;
+  padding: 0 !important;
 }
 
 .table_row {
-    height: 80px;
+  height: 80px;
 }
 
 .cell {
-    border-bottom: 0px solid rgb(221, 221, 221) !important;
-    font-size: 1em !important;
-    background: rgba(255, 255, 255);
+  border-bottom: 0px solid rgb(221, 221, 221) !important;
+  font-size: 1em !important;
+  background: rgba(255, 255, 255);
 }
 
 .showEvents_continer_booking {
-    width: 50%;
+  width: 50%;
 }
 
+@media only screen and (max-width: 600px) {
+  .showEvents_continer_booking {
+    width: 100%;
+  }
+}
 .main_continer_boking {
-    display: flex;
-    margin: auto;
-    align-items: center;
-    justify-content: center;
-    background-image: url("https://images.unsplash.com/photo-1462536943532-57a629f6cc60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80");
-    background-attachment: fixed;
-    background-position: center;
-    min-height: 750px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1462536943532-57a629f6cc60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80");
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 750px;
 }
 
 .btn_cancel {
-    width: 100px;
-    background: linear-gradient(to bottom, rgb(187, 150, 187), rgb(187, 150, 187));
-    border: none;
-    color: #FFF;
-    border-radius: 2em;
-    padding: 0.3rem;
-    cursor: pointer;
+  width: 100px;
+  background: linear-gradient(
+    to bottom,
+    rgb(187, 150, 187),
+    rgb(187, 150, 187)
+  );
+  border: none;
+  color: #fff;
+  border-radius: 2em;
+  padding: 0.3rem;
+  cursor: pointer;
 }
-.table_row_main_text_boking{
-    color: white !important;
-    font-size: 1rem !important;
-    font-weight: bold !important;
+.table_row_main_text_boking {
+  color: white !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
 }
-.table_row_main_booking{
-    background: rgb(146, 139, 150) !important;
-
+.table_row_main_booking {
+  background: rgb(146, 139, 150) !important;
 }

@@ -8,6 +8,7 @@ import CollapsibleTableBookingTracking from './CollapsibleTableBookingTracking'
 import { Button } from '@material-ui/core';
 import ShowEventsReqest from '../../graghqlHttpRequsets/eventsReqests/ShowEventsReqest'
 import BookingHttpRequeste from '../../graghqlHttpRequsets/bookingReqests/BookingHttpRequeste'
+import Grid from '@material-ui/core/Grid';
 
 import './creatEvent.css';
 
@@ -29,6 +30,14 @@ const useStyles = makeStyles((theme) => ({
     submit: {
         margin: theme.spacing(3, 0, 2),
     },
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
 }));
 
 const EvetnsPage = (props) => {
@@ -40,6 +49,7 @@ const EvetnsPage = (props) => {
     const [filter, setFilter] = useState('');
     const [filterDate, setFilterDate] = useState('');
     const [eror, SetEror] = useState('');
+    const classes = useStyles();
 
     useEffect(() => {
         fetchEvents();
@@ -84,7 +94,7 @@ const EvetnsPage = (props) => {
             setIsLoading(false);
         }
     }
-    
+
     const fetchBookings = async () => {
         let requseBody = {
             query: `
@@ -125,43 +135,83 @@ const EvetnsPage = (props) => {
         }
     }
 
+    const start = new Date().toISOString()
     const filteredAdmin = events.filter(event => { return event.creator._id === props.userId })
     const filteredAdminUserBooking = bookings.filter(booking => { return booking.event.creator._id === props.userId })
-    const filteredArr = events.filter(event => event.title.includes(filter))
-    const filteredArrByDate = events.filter(event => event.date > filterDate)
+    const filteredArr = events.filter(event => (event.title.includes(filter) && (event.date > start))).sort((a, b) => b.date - a.date)
+    const filteredArrByDate = events.filter(event => event.date > filterDate && (event.date > start)).sort((a, b) => b.date - a.date)
 
     return (
         <div className="background">
-            <div className="continer_events">
-                <div className="showEvents_continer_main">
-                    <header className="header">
-                        <div className="search_color_main">
-                            <div className="filter_continer">
-                                <div className="search">
-                                    <button className="btn_icon"><SearchIcon /> </button>
-                                    <input className="search_input" type="text" placeholder="חיפוש" onChange={(e) => setFilter(e.target.value)} />
-                                </div>
-                                <div className="date_title_continer">
-                                    <input className="date_title_input" type="text" placeholder="אירוע בנושא" onChange={(e) => setFilter(e.target.value)} />
-                                    <input className="date_title_input" type="date" placeholder="date" onChange={(e) => setFilterDate(e.target.value)} />
-                                </div>
-                                <p className="p_date"> * מציג אירועים החל מהתאריך הנבחר  </p>
+            <div className={classes.root}>
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <Grid item xs={12} sm={6}  >
+                        <div className="showEvents_continer_main">
+                            <header className="header">
+                                <div className="search_color_main">
+                                    <div className="filter_continer">
+                                        <div className="search">
+                                            <button className="btn_icon"><SearchIcon /> </button>
+                                            <input className="search_input" type="text" placeholder="חיפוש" onChange={(e) => setFilter(e.target.value)} />
+                                        </div>
+                                        <div className="date_title_continer">
+                                            <input className="date_title_input" type="text" placeholder="אירוע בנושא" onChange={(e) => setFilter(e.target.value)} />
+                                            <input className="date_title_input" type="date" placeholder="date" onChange={(e) => setFilterDate(e.target.value)} />
+                                        </div>
+                                        <p className="p_date"> * מציג אירועים החל מהתאריך הנבחר  </p>
 
+                                    </div>
+                                </div>
+                            </header>
+                            <div className="showEvents_continer">
+                                {props.loged &&
+                                    <div className="addEvents">
+                                        <button className="addEvent_btn">
+                                            <CustimizedDialog />
+                                        </button>
+                                        <p className="events_number">
+                                            {myEvents ? "אירועים" + " " + filteredAdmin.length : "אירועים" + " " + events.length}
+                                        </p>
+                                        <button className="addEvent_btn"
+                                            onClick={() => setMyEvents(!myEvents)}>
+                                            <Button>
+                                                {myEvents ? 'הצג כלל האירועים' : 'הצג אירועים שלי'}
+                                            </Button>
+                                        </button>
+                                    </div>
+                                }
+                                {myEvents
+                                    ?
+                                    <CollapsibleTableBookingTracking
+                                        events={filteredAdmin}
+                                        bookedEvents={filteredAdminUserBooking}
+                                    />
+                                    :
+                                    isloading ?
+                                        <div className="spinner">
+                                            <div className="lds-dual-ring">
+                                            </div>
+                                        </div>
+                                        : filter !== '' ?
+                                            <CollapsibleTable
+                                                events={filteredArr} />
+                                            :
+                                            <CollapsibleTable
+                                                events={filteredArrByDate}
+                                            />
+                                }
                             </div>
                         </div>
-                    </header>
-                    <div className="showEvents_continer">
-                        <div className="addEvents">
-                            {props.loged && <button className="addEvent_btn"> <CustimizedDialog /> </button>}
-                            <p className="events_number"> {myEvents ? "אירועים" + " " + filteredAdmin.length : "אירועים" + " " + events.length} </p>
-                            {props.loged && <button className="addEvent_btn" onClick={() => setMyEvents(!myEvents)}> <Button> {myEvents ? 'הצג כלל האירועים' : 'הצג אירועים שלי'} </Button>    </button>}
-                        </div>
-                        {myEvents ? <CollapsibleTableBookingTracking events={filteredAdmin} bookedEvents={filteredAdminUserBooking} /> :
-                            isloading ? <div className="spinner"> <div className="lds-dual-ring"></div> </div> : filter !== '' ? <CollapsibleTable events={filteredArr} /> : <CollapsibleTable events={filteredArrByDate} />}
-                    </div>
-                </div>
+                    </Grid>
+                </Grid>
             </div>
-        </div>
+
+        </div >
     );
 }
 
