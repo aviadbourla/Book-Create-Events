@@ -57,14 +57,20 @@ module.exports = {
         }
         try {
             const fetchedEvent = await Event.findOne({ _id: args.eventId });
-            const booking = new Boogkin({
-                user: req.userId,
-                event: fetchedEvent
-            })
-            //fetchedEvent.usersBookings.push(booking)
-            const result = await booking.save();
-            const newLocal = transformBooking(result);
-            return newLocal;
+            const CreatorId = (fetchedEvent._doc.creator._id).toString();
+            const findIfBooked = await Boogkin.findOne({ user: req.userId, event: args.eventId })
+            if (findIfBooked === null && CreatorId !== req.userId) {
+                const booking = new Boogkin({
+                    user: req.userId,
+                    event: fetchedEvent
+                })
+                //fetchedEvent.usersBookings.push(booking)
+                const result = await booking.save();
+                const newLocal = transformBooking(result);
+                return newLocal;
+            } else {
+                throw new Error("Alredy booked/admin booked to his own events")
+            }
         } catch (err) {
             throw err;
         }
