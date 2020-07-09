@@ -3,6 +3,13 @@
   padding: 0;
 }
 
+.main_event_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .date_cell_day {
   background-color: #c5a7b9;
   color: white !important;

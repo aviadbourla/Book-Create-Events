@@ -7,6 +7,7 @@ import MainNavigation from './components/Navigation/MainNavigation'
 import { connect } from 'react-redux'
 import CreatEventForm from './components/Events/CreatEventForm'
 import HomePage from './pages/HomePage';
+import SignUpForm from './pages/SignUpForm';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,6 +25,7 @@ function App(props) {
             {props.loged && <Redirect from="/auth" to="/events" exact />}
             {!props.loged && <Route path="/auth" component={Auth} />}
             <Route path="/homepage" component={HomePage} />
+            <Route path="/signUp" component={SignUpForm} />
             <Route path="/createEvent" component={CreatEventForm} />
             <Route path="/events" component={EvetnsPage} />
             <Route path="/bookings" component={BookingPage} />

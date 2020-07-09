@@ -28,7 +28,7 @@ const HomePage = () => {
 
     useEffect(() => {
         let d = new Date();
-        SetMonth(getMonthText(d.getMonth()));
+        SetMonth(getMonthText(d.getMonth() + 1));
         SetDay(d.getDay());
     }, [])
 

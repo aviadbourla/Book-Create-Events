@@ -12,7 +12,7 @@ const MainNavigation = (props) => {
 
     return (
         <Navbar expand="lg" className="main-nav">
-            <Navbar.Brand className="main-navigation__logo">  <NavLink to="/" className="main-navigation__logo" > EasyEvent</NavLink></Navbar.Brand>
+            <Navbar.Brand className="main-navigation__logo">  <NavLink to="homepage" className="main-navigation__logo" > EasyEvent</NavLink></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav" className="main-navigation__item">
                 <Nav className="mr-auto">
@@ -21,7 +21,6 @@ const MainNavigation = (props) => {
                     {props.loged && <NavLink to="/bookings" className="events"> Bookings</NavLink>}
                 </Nav>
                 {props.loged && <NavLink to="/auth" className="events" onClick={() => props.logout()}> logout</NavLink>}
-
             </Navbar.Collapse>
         </Navbar>
     )

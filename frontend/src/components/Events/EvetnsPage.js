@@ -135,11 +135,11 @@ const EvetnsPage = (props) => {
         }
     }
 
-    const start = new Date().toISOString()
+    const dateNow = new Date().toISOString()
     const filteredAdmin = events.filter(event => { return event.creator._id === props.userId })
     const filteredAdminUserBooking = bookings.filter(booking => { return booking.event.creator._id === props.userId })
-    const filteredArr = events.filter(event => (event.title.includes(filter) && (event.date > start))).sort((a, b) => b.date - a.date)
-    const filteredArrByDate = events.filter(event => event.date > filterDate && (event.date > start)).sort((a, b) => b.date - a.date)
+    const filteredArr = events.filter(event => (event.title.includes(filter) && (event.date > dateNow))).sort((a, b) => new Date(a.date) - new Date(b.date))
+    const filteredArrByDate = events.filter(event => event.date > filterDate && (event.date > dateNow)).sort((a, b) => new Date(a.date) - new Date(b.date))
 
     return (
         <div className="background">
@@ -193,8 +193,10 @@ const EvetnsPage = (props) => {
                                     />
                                     :
                                     isloading ?
-                                        <div className="spinner">
-                                            <div className="lds-dual-ring">
+                                        <div className="spiner-continer">
+                                            <div className="spinner">
+                                                <div className="lds-dual-ring">
+                                                </div>
                                             </div>
                                         </div>
                                         : filter !== '' ?

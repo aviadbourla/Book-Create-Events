@@ -7,11 +7,12 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { connect } from 'react-redux'
 import * as actions from '../Redux/actions';
 import { useHistory } from "react-router-dom";
+
 import { useForm } from "react-hook-form";
 import UserLoignReqest from '../graghqlHttpRequsets/userResests/UserLoignReqest';
 import "./Auth.css";
 
-const Auth = (props) => {
+const SignUpForm = (props) => {
 
     const { register, errors, handleSubmit, watch } = useForm({});
     const [isLogin, SetisLogin] = useState(true);
@@ -24,35 +25,32 @@ const Auth = (props) => {
 
 
     const SwtichModeHandler = () => {
-        history.push("/signUp");
+        history.push("/auth");
     }
 
     const onSubmit = async (data) => {
         let requseBody = {
             query: `
-            query{
-                login(email: "${data.email}", password: "${data.password}}") {
-                    userId
-                    token
-                    toeknExpiration
+                mutation {
+                    creatUser(userInput: {email: "${data.email}",password: "${data.password}}" ,fullName: "${data.fullName}"}){
+                        _id
+                        email
+                    }
                 }
-            }
-            `
+                 `
         };
 
         try {
             const respone = await UserLoignReqest(requseBody);
             if (respone.status !== 200 && respone.status !== 201) {
-                SetEror('username/password are wrong')
+                SetEror('Some thing went wrong')
                 throw new Error("failed")
             }
-            props.login();
-            props.getToken(respone.data.data.login.token);
-            props.getUserId(respone.data.data.login.userId);
-            history.push("/events");
+            history.push("/auth");
         }
         catch (error) {
-            SetEror('username/password are wrong')
+            console.log(error);
+            SetEror('Some thing went wrong')
         }
     }
 
@@ -61,12 +59,29 @@ const Auth = (props) => {
             <form className="form_control" onSubmit={e => e.preventDefault()} >
                 <div className="icon_h1">
                     <h1 className="login_h1">
-                        {isLogin ? 'Log in' : 'Sign Up'}
+                        Sign Up
                     </h1>
                     <Avatar  >
                         <LockOutlinedIcon />
                     </Avatar>
                 </div>
+                <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="fullName"
+                    label="full Name"
+                    name="fullName"
+                    autoComplete="fullName"
+                    autoFocus
+                    error={errors.fullName}
+                    inputRef={register({
+                        required: "You must specify a fullName",
+                    })}
+                />
+                {(errors.fullName && isLogin) && errors.fullName.message}
+
                 <TextField
                     variant="outlined"
                     margin="normal"
@@ -119,12 +134,12 @@ const Auth = (props) => {
                     onClick={handleSubmit(onSubmit)}
 
                 >
-                    Log in
+                    Sign Up
                 </Button>
                 <Grid container>
                     <Grid item>
                         <Button onClick={() => SwtichModeHandler()} variant="body2">
-                            Don't have an account? Sign Up"
+                            {isLogin && "Have account? Switch to login"}
                         </Button>
                     </Grid>
                 </Grid>
@@ -153,4 +168,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);
