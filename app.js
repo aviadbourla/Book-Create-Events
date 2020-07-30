@@ -38,7 +38,7 @@ app.get('/', (req, res, next) => {
 mongoose.connect
     (`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.DB}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
     .then(() => {
-        app.listen(8000);
+        app.listen(process.env.PORT || 8000);
     })
     .catch(err => {
         console.log(err);
