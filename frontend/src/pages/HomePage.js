@@ -72,13 +72,12 @@ const HomePage = () => {
             </div>
             <div className="second_div">
                 <div className="description_second_div">
-                    <h1> Set yourself apart.</h1>
+                    <h1> Book events now.</h1>
                     <br />
                     <p className="text_second_div">
-                        An Event Apart: Online Together   is a single-day online conference with an
-                        intense focus on digital design, UX, content, code, and more, giving you deep
-                        insights into where we are now and where things are going next. Session times
-                    will be based on the US Central (UTC-5) time zone. </p>
+                        Book Event: Online Together is a web-app online conference that let
+                        you focus on finding the right event for you in severl topics such as, UX/UI, cyber security, software development , and more, giving you deep
+                        insights to make the right decision</p>
                 </div>
             </div>
 

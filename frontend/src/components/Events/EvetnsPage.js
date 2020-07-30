@@ -9,6 +9,8 @@ import { Button } from '@material-ui/core';
 import ShowEventsReqest from '../../graghqlHttpRequsets/eventsReqests/ShowEventsReqest'
 import BookingHttpRequeste from '../../graghqlHttpRequsets/bookingReqests/BookingHttpRequeste'
 import Grid from '@material-ui/core/Grid';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 import './creatEvent.css';
 
@@ -69,7 +71,6 @@ const EvetnsPage = (props) => {
                 title
                 description
                 date
-                price
                 creator{
                     _id
                     email
@@ -211,7 +212,6 @@ const EvetnsPage = (props) => {
                     </Grid>
                 </Grid>
             </div>
-
         </div >
     );
 }

@@ -23,7 +23,6 @@ module.exports = {
         const event = new Event({
             title: args.evnetInput.title,
             description: args.evnetInput.description,
-            price: +args.evnetInput.price,
             date: new Date(args.evnetInput.date),
             creator: req.userId
         })

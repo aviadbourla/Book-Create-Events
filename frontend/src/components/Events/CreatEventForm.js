@@ -18,12 +18,11 @@ function CreatEventForm(props) {
         let requseBody = {
             query: `
             mutation {
-                createEvent(evnetInput: {title: "${data.title}",price: ${+data.price} ,date: "${data.date}",description: "${data.description}"}){
+                createEvent(evnetInput: {title: "${data.title}" ,date:"${data.date}",description:"${data.description}"}){
                 _id
                 title
                 description
                 date
-                price
             }
         }
          `
@@ -66,23 +65,6 @@ function CreatEventForm(props) {
                         required: "חובה להוסיף נושא",
                     })}
                 />
-                <TextField
-                    error={errors.price}
-                    variant="outlined"
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="price"
-                    label="מחיר"
-                    type="price"
-                    id="price"
-                    helperText={errors.price && errors.price.message}
-                    autoComplete="current-price"
-                    inputRef={register({
-                        required: "חובה להוסיף מחיר",
-                    })}
-                />
-
 
                 <TextField
                     variant="outlined"

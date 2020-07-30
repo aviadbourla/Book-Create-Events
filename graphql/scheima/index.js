@@ -13,7 +13,6 @@ type Event{
     _id: ID,
     title: String!
     description: String!
-    price: Float!
     date: String! 
     creator: User! 
     usersBookings: [User]
@@ -33,7 +32,6 @@ type AuthData {
 input EvnetInput {
     title: String!
     description: String!
-    price: Float!
     date: String! 
 }
 input UserInput{

@@ -187,3 +187,37 @@ input {
 .p_date {
   direction: rtl;
 }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  height: 100px;
+  background-color: dimgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+
+.Footer_a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  list-style-type: none;
+  color: black;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  margin: 0px 1rem;
+}
+
+.links {
+  color: white;
+  font-size: 1.2rem;
+}

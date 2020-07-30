@@ -8,6 +8,8 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const MainNavigation = (props) => {
 
     return (
@@ -19,10 +21,13 @@ const MainNavigation = (props) => {
                     {!props.loged && <NavLink to="/auth" className="events">Authenticate  </NavLink>}
                     <NavLink to="/events" className="events"  >Events  </NavLink>
                     {props.loged && <NavLink to="/bookings" className="events"> Bookings</NavLink>}
+
                 </Nav>
                 {props.loged && <NavLink to="/auth" className="events" onClick={() => props.logout()}> logout</NavLink>}
-            </Navbar.Collapse>
-        </Navbar>
+                <a className="links" href="https://github.com/aviadbourla"><GitHubIcon fontSize="large" color="inherit" /></a>
+                <a className="links" href="https://www.linkedin.com/in/aviad-bourla-56b4351aa/"><LinkedInIcon fontSize="large" color="inherit" /></a>
+            </Navbar.Collapse >
+        </Navbar >
     )
 };
 
