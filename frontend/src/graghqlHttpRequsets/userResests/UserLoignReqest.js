@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 
-const UserLoignReqest = async(requseBody) => {
+const UserLoignReqest = async (requseBody) => {
     return axios({
-        url: 'http://localhost:8000/graphql',
+        url: process.env.REACT_APP_BACKEND_URL,
         method: 'POST',
         data: requseBody,
     })
 }
 
 export default UserLoignReqest;
- 

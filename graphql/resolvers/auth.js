@@ -2,7 +2,7 @@
 const bcrypt = require('bcryptjs');
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
-const {sendWelcomeEmail} = require('../../emails/acoount');
+const { sendWelcomeEmail } = require('../../emails/acoount');
 
 module.exports = {
     creatUser: async args => {
@@ -37,7 +37,7 @@ module.exports = {
         if (!IsEqual) {
             throw new Error("Wrong Password")
         }
-        const token = jwt.sign({ userId: user.id, email: user.email }, 'mytokensecret', { expiresIn: '1h' })
+        const token = jwt.sign({ userId: user.id, email: user.email }, `${process.env.JWT_KEY}`, { expiresIn: '1h' })
         return { userId: user.id, token: token, toeknExpiration: 1 }
     }
 };

@@ -65,12 +65,12 @@ export default function CustimizedDialog(props) {
         <div>
             <Button onClick={handleClickOpen} >
                 הוספת אירוע חדש
-      </Button>
+            </Button>
             <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}>
                 </DialogTitle>
                 <Typography gutterBottom>
-                    <CreatEventForm />
+                    <CreatEventForm onClose={handleClose} />
                 </Typography>
             </Dialog>
         </div>

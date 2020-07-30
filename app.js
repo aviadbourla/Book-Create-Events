@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const app = express();
 const graphqlSchema = require('./graphql/scheima/index');
 const graphqlResolvers = require('./graphql/resolvers/index')
-const { dBPassword } = require('./keys');
-
+const { dBPassword, dbName, userName } = require('./keys');
+require('dotenv/config')
 const IsAuth = require('./middleware/is-auth')
 
 app.use(bodyParser.json());
@@ -34,8 +34,9 @@ app.use('/graphql', graphqlHttp({
 app.get('/', (req, res, next) => {
     res.send("hey world")
 })
+
 mongoose.connect
-    (`mongodb+srv://aviadbourla:${dBPassword}@${userName}.mongodb.net/${dbName}?retryWrites=true&w=majority`)
+    (`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.DB}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`)
     .then(() => {
         app.listen(8000);
     })

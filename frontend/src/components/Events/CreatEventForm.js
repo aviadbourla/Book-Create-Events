@@ -9,7 +9,6 @@ import CreateEventReqest from '../../graghqlHttpRequsets/eventsReqests/CreateEve
 import './creatEventForm.css'
 
 function CreatEventForm(props) {
-
     const { register, errors, handleSubmit, watch } = useForm({});
     const [eror, SetEror] = useState('');
     const [isLogin, SetisLogin] = useState(true);
@@ -37,18 +36,15 @@ function CreatEventForm(props) {
                 SetEror('username/password are wrong')
                 throw new Error("failed")
             }
-            window.location.reload();
+            props.onClose()
         }
         catch (error) {
             console.log(error)
         }
-
-
     }
 
     return (
         <div>
-
             <form className="form_control_create_event" onSubmit={e => e.preventDefault()} >
                 <h1 className="h1_addevent">
                     פרסום אירוע

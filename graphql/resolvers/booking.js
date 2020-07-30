@@ -11,7 +11,6 @@ module.exports = {
         }
         try {
             const bookings = await Boogkin.find({ user: req.userId });
-            console.log(bookings);
             return bookings.map(booking => {
                 return transformBooking(booking);
             })

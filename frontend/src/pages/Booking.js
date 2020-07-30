@@ -86,7 +86,6 @@ const BookingPage = (props) => {
                 throw new Error("failed")
             }
             const temp = respone.data.data.bookings;
-            console.log(temp);
             setBookigns(temp)
             setisloading(false);
         }
@@ -111,7 +110,7 @@ const BookingPage = (props) => {
                  `
             };
             const token = props.curToken;
-            fetch('http://localhost:8000/graphql', {
+            fetch(process.env.REACT_APP_BACKEND_URL, {
                 method: 'POST',
                 body: JSON.stringify(requseBody),
                 headers: {

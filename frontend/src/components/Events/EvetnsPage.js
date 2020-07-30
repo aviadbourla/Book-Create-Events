@@ -127,7 +127,6 @@ const EvetnsPage = (props) => {
                 throw new Error("failed")
             }
             const temp = respone.data.data.Allbookings;
-            console.log(temp);
             setBookigns(temp)
         }
         catch (err) {
