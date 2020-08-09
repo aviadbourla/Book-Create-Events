@@ -43,10 +43,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const EvetnsPage = (props) => {
+
     const [events, setEvents] = useState([]);
     const [bookings, setBookigns] = useState([]);
     const [isloading, setIsLoading] = useState(false);
-    const [creating, setCreating] = useState(false);
     const [myEvents, setMyEvents] = useState(false);
     const [filter, setFilter] = useState('');
     const [filterDate, setFilterDate] = useState('');
@@ -156,12 +156,29 @@ const EvetnsPage = (props) => {
                                 <div className="search_color_main">
                                     <div className="filter_continer">
                                         <div className="search">
-                                            <button className="btn_icon"><SearchIcon /> </button>
-                                            <input className="search_input" type="text" placeholder="חיפוש" onChange={(e) => setFilter(e.target.value)} />
+                                            <button className="btn_icon">
+                                                <SearchIcon />
+                                            </button>
+                                            <input
+                                                className="search_input"
+                                                type="text"
+                                                placeholder="חיפוש"
+                                                onChange={(e) => setFilter(e.target.value)}
+                                            />
                                         </div>
                                         <div className="date_title_continer">
-                                            <input className="date_title_input" type="text" placeholder="אירוע בנושא" onChange={(e) => setFilter(e.target.value)} />
-                                            <input className="date_title_input" type="date" placeholder="date" onChange={(e) => setFilterDate(e.target.value)} />
+                                            <input
+                                                className="date_title_input"
+                                                type="text"
+                                                placeholder="אירוע בנושא"
+                                                onChange={(e) => setFilter(e.target.value)}
+                                            />
+                                            <input
+                                                className="date_title_input"
+                                                type="date"
+                                                placeholder="date"
+                                                onChange={(e) => setFilterDate(e.target.value)}
+                                            />
                                         </div>
                                         <p className="p_date"> * מציג אירועים החל מהתאריך הנבחר  </p>
 
@@ -177,7 +194,8 @@ const EvetnsPage = (props) => {
                                         <p className="events_number">
                                             {myEvents ? "אירועים" + " " + filteredAdmin.length : "אירועים" + " " + events.length}
                                         </p>
-                                        <button className="addEvent_btn"
+                                        <button
+                                            className="addEvent_btn"
                                             onClick={() => setMyEvents(!myEvents)}>
                                             <Button>
                                                 {myEvents ? 'הצג כלל האירועים' : 'הצג אירועים שלי'}

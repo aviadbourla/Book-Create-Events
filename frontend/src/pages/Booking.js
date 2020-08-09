@@ -45,14 +45,14 @@ const getMonthText = (a) => {
 const BookingPage = (props) => {
 
     const [bookingsArr, setBookigns] = useState([])
-    const [isloading, setisloading] = useState(false)
+    const [isLoading, setIsloading] = useState(false)
 
     useEffect(() => {
         fetchBookings();
     }, [])
 
     const fetchBookings = async () => {
-        setisloading(true);
+        setIsloading(true);
         let requseBody = {
             query: `
             query {
@@ -87,11 +87,11 @@ const BookingPage = (props) => {
             }
             const temp = respone.data.data.bookings;
             setBookigns(temp)
-            setisloading(false);
+            setIsloading(false);
         }
         catch (err) {
             console.log(err)
-            setisloading(false);
+            setIsloading(false);
         }
     }
 
@@ -137,14 +137,15 @@ const BookingPage = (props) => {
     return (
         < div className="main_continer_boking" >
             <div className="showEvents_continer_booking">
-                {isloading ?
+                {isLoading ?
                     <div className="main_event_list">
                         <div className="spinner">
                             <div className="lds-dual-ring">
                             </div>
                         </div>
                     </div> :
-                    bookingsArr.length < 1 ? <AlertDialog openDialog={true} /> :
+                    bookingsArr.length < 1 ?
+                        <AlertDialog openDialog={true} /> :
                         <TableContainer className="Events_table" component={Paper} >
                             <Table aria-label="simple table">
                                 <TableHead>
@@ -167,7 +168,8 @@ const BookingPage = (props) => {
                                     ))}
                                 </TableBody>
                             </Table>
-                        </TableContainer>}
+                        </TableContainer>
+                }
             </div>
         </div >
     );

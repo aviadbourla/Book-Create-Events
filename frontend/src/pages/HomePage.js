@@ -19,10 +19,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 const HomePage = () => {
+
     let history = useHistory();
     const classes = useStyles();
-
-    const [date, SetDate] = useState(Date)
     const [month, SetMonth] = useState('')
     const [day, SetDay] = useState('')
 
@@ -64,10 +63,16 @@ const HomePage = () => {
     return (
         <div className="home_continer">
             <div className="first_div">
+                <div className="left-div">
+                </div>
                 <div className="continer">
                     <h1 className="home-title"> Simplify Book it </h1>
                     <p> {month} 2020 / Events</p>
-                    <button className="btn-home" onClick={() => history.push("/events")}>   Book <strong> Events</strong> Now! </button>
+                    <button
+                        className="btn-home"
+                        onClick={() => history.push("/events")}>
+                        Book <strong> Events</strong> Now!
+                     </button>
                 </div>
             </div>
             <div className="second_div">
@@ -80,9 +85,7 @@ const HomePage = () => {
                         insights to make the right decision</p>
                 </div>
             </div>
-
         </div >
-
     )
 }
 

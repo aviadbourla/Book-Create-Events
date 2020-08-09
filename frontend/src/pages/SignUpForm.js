@@ -56,7 +56,10 @@ const SignUpForm = (props) => {
 
     return (
         <div className="login_continer">
-            <form className="form_control" onSubmit={e => e.preventDefault()} >
+            <form
+                className="form_control"
+                onSubmit={e => e.preventDefault()}
+            >
                 <div className="icon_h1">
                     <h1 className="login_h1">
                         Sign Up
@@ -138,12 +141,13 @@ const SignUpForm = (props) => {
                 </Button>
                 <Grid container>
                     <Grid item>
-                        <Button onClick={() => SwtichModeHandler()} variant="body2">
+                        <Button
+                            onClick={() => SwtichModeHandler()}
+                            variant="body2">
                             {isLogin && "Have account? Switch to login"}
                         </Button>
                     </Grid>
                 </Grid>
-
             </form>
         </div>
     );

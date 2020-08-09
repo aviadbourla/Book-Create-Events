@@ -123,12 +123,13 @@ const Auth = (props) => {
                 </Button>
                 <Grid container>
                     <Grid item>
-                        <Button onClick={() => SwtichModeHandler()} variant="body2">
+                        <Button
+                            onClick={() => SwtichModeHandler()}
+                            variant="body2">
                             Don't have an account? Sign Up"
                         </Button>
                     </Grid>
                 </Grid>
-
             </form>
         </div>
     );

@@ -1,33 +1,35 @@
 .first_div {
-  background-image: url(https://images.unsplash.com/photo-1491439833076-514a03b24a15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80),
-    -webkit-linear-gradient(#ffffed 0%, #fff0e7 100%);
   background-position: top;
-  background-color: #fff0e7;
   height: 70%;
-  color: rgb(5, 4, 5);
+  display: flex;
+  flex-direction: row;
   width: 100%;
 }
-
 .first_div h1 {
   font-size: 4rem;
   font-family: "Fascinate Inline", cursive;
   margin: 1rem;
 }
-
 .first_div p {
   font-size: 2rem;
   font-family: "Fascinate Inline", cursive;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 .continer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 50%;
   justify-content: center;
+}
+.left-div {
+  background-image: url(https://images.unsplash.com/photo-1511871893393-82e9c16b81e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-position: center;
+  width: 50%;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .btn-home {
@@ -116,5 +118,12 @@ strong {
     color: black;
     font-weight: bold;
     border-radius: 20px;
+  }
+  .continer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 }

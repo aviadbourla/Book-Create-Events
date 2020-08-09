@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import Auth from './pages/Auth';
 import BookingPage from './pages/Booking';
-import EvetnsPage from './pages/Events';
+import EvetnsPage from './components/Events/EvetnsPage';
 import MainNavigation from './components/Navigation/MainNavigation'
 import { connect } from 'react-redux'
 import CreatEventForm from './components/Events/CreatEventForm'
@@ -12,24 +12,45 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
+
+  let routes;
+
+  if (!props.loged) {
+    routes =
+      <Switch>
+        <Route path="/homepage">
+          <HomePage />
+        </Route>
+        <Route path="/auth">
+          <Auth />
+        </Route>
+        <Route path="/events">
+          <EvetnsPage />
+        </Route>
+        <Redirect to="/auth" />
+      </Switch>
+  } else {
+    routes =
+      <Switch>
+        <Route path="/homepage">
+          <HomePage />
+        </Route>
+        <Route path="/bookings">
+          <BookingPage />
+        </Route>
+        <Route path="/events"  >
+          <EvetnsPage />
+        </Route>
+        <Redirect to="/events" />
+      </Switch>
+  }
+
   return (
     <BrowserRouter >
       <React.Fragment>
         <MainNavigation />
-        <main  >
-          <Switch>
-            {!props.loged && <Redirect from="/" to="/homepage" exact />}
-            {!props.loged && <Redirect from="/" to="/auth" exact />}
-            {!props.loged && <Redirect from="bookigns" to="/auth" exact />}
-            {props.loged && <Redirect from="/" to="/events" exact />}
-            {props.loged && <Redirect from="/auth" to="/events" exact />}
-            {!props.loged && <Route path="/auth" component={Auth} />}
-            <Route path="/homepage" component={HomePage} />
-            <Route path="/signUp" component={SignUpForm} />
-            <Route path="/createEvent" component={CreatEventForm} />
-            <Route path="/events" component={EvetnsPage} />
-            <Route path="/bookings" component={BookingPage} />
-          </Switch>
+        <main >
+          {routes}
         </main>
       </React.Fragment>
     </BrowserRouter >

@@ -14,18 +14,54 @@ const MainNavigation = (props) => {
 
     return (
         <Navbar expand="lg" className="main-nav">
-            <Navbar.Brand className="main-navigation__logo">  <NavLink to="homepage" className="main-navigation__logo" > EasyEvent</NavLink></Navbar.Brand>
+            <Navbar.Brand className="main-navigation__logo">
+                <NavLink
+                    to="homepage"
+                    className="main-navigation__logo" >
+                    EasyEvent
+                 </NavLink>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav" className="main-navigation__item">
+            <Navbar.Collapse
+                id="responsive-navbar-nav"
+                className="main-navigation__item">
                 <Nav className="mr-auto">
-                    {!props.loged && <NavLink to="/auth" className="events">Authenticate  </NavLink>}
-                    <NavLink to="/events" className="events"  >Events  </NavLink>
-                    {props.loged && <NavLink to="/bookings" className="events"> Bookings</NavLink>}
-
+                    {!props.loged &&
+                        <NavLink to="/auth" className="events">
+                            Authenticate
+                          </NavLink>
+                    }
+                    <NavLink
+                        to="/events"
+                        className="events">
+                        Events
+                     </NavLink>
+                    {props.loged &&
+                        <NavLink
+                            to="/bookings"
+                            className="events">
+                            Bookings
+                     </NavLink>
+                    }
                 </Nav>
-                {props.loged && <NavLink to="/auth" className="events" onClick={() => props.logout()}> logout</NavLink>}
-                <a className="links" href="https://github.com/aviadbourla"><GitHubIcon fontSize="large" color="inherit" /></a>
-                <a className="links" href="https://www.linkedin.com/in/aviad-bourla-56b4351aa/"><LinkedInIcon fontSize="large" color="inherit" /></a>
+                {props.loged &&
+                    <NavLink
+                        to="/auth"
+                        className="events"
+                        onClick={() => props.logout()}>
+                        logout
+                      </NavLink>
+                }
+                <a
+                    className="links"
+                    href="https://github.com/aviadbourla">
+                    <GitHubIcon fontSize="large" color="inherit" />
+                </a>
+                <a
+                    className="links"
+                    href="https://www.linkedin.com/in/aviad-bourla-56b4351aa/">
+                    <LinkedInIcon fontSize="large" color="inherit" />
+                </a>
             </Navbar.Collapse >
         </Navbar >
     )
