@@ -7,7 +7,8 @@ const graphqlSchema = require('./graphql/scheima/index');
 const graphqlResolvers = require('./graphql/resolvers/index')
 const { dBPassword, dbName, userName } = require('./keys');
 require('dotenv/config')
-const IsAuth = require('./middleware/is-auth')
+const IsAuth = require('./middleware/is-auth');
+const { path } = require('dotenv/lib/env-options');
 
 app.use(bodyParser.json());
 
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
     }
 
 })
+
 app.use(IsAuth)
 
 app.use('/graphql', graphqlHttp({
@@ -30,6 +32,10 @@ app.use('/graphql', graphqlHttp({
     graphiql: true
 })
 );
+
+app.use((req, res, next) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
 
 app.get('/', (req, res, next) => {
     res.send("hey world")
